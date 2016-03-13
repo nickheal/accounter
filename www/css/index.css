@@ -58,12 +58,6 @@ body {
     }
 }
 
-.mobile-post-outer {
-    padding: 1em;
-    margin: 1em;
-    background: #fff;
-    border: 1px solid #aaa;
-}
 .mobile-post-outer h3 {
     margin: 0;
     padding: 0;
@@ -99,6 +93,14 @@ a {
 }
 
 .mobile-post-outer {
+	padding: 1em;
+    margin: 2.5%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+   	width: 95%;
+    background: #fff;
+    border: 1px solid #aaa;
     transform: translateY(-5px);
     opacity: 0;
     transition: transform 500ms ease-out, opacity 250ms;
