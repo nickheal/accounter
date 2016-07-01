@@ -1,0 +1,221 @@
+@import "partials/vars";
+@import "partials/mixins";
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+
+header {
+	position: relative;
+	width: 100%;
+	border-bottom: solid 1px $primaryColour;
+
+	h1,
+	h2 {
+		width: 96%;
+		margin: 0 auto;
+	}
+
+	#sync,
+	#settings {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 2em;
+		height: 2em;
+		border: solid 1px $primaryColour;
+		background: none;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		color: transparent;
+		overflow: hidden;
+	}
+
+	#sync {
+		background-image: url(../img/sync.svg);
+		right: .5em;
+	}
+	#settings {
+		background-image: url(../img/cog.svg);
+		right: 5em;
+	}
+}
+
+form {
+	width: 96%;
+	margin: 0 auto;
+
+	input:not([type="checkbox"]) {
+		width: 100%;
+		padding: 1em;
+		border: solid 1px $primaryColour;
+		margin-top: 1em;
+		@include border-box;
+	}
+
+	label {
+		display: block;
+		width: 100%;
+		margin: 1em 0;
+	}
+
+	input[type="checkbox"] {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+
+		& + label {
+			span {
+				position: relative;
+				display: inline-block;
+			    vertical-align: middle;
+			    width: 2em;
+			    height: 2em;
+			    margin-right: .5em;
+			    border: solid 1px $primaryColour;
+			}
+		}
+
+		&:checked {
+			& + label {
+				span {
+				    &:after {
+				    	position: absolute;
+				    	top: 50%;
+				    	left: 50%;
+				    	transform: translate(-50%, -50%);
+				    	content: "\2714";
+				    	font-size: 1.5em;
+				    	color: $primaryColour;
+				    }
+				}
+			}
+		}
+	}
+
+	button {
+		background: none;
+		border: solid 3px $primaryColour;
+		padding: .25em .5em;
+		font-size: 2em;
+		font-weight: 700;
+		text-transform: uppercase;
+		@include border-box;
+		color: $primaryColour;
+	}
+}
+
+.popup-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $transparent;
+	transition: background-color 500ms ease;
+
+	&.active {
+		background-color: $popupBackground;
+	}
+
+	.popup {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%) scaleY(0);
+		width: 100%;
+		background-color: $white;
+		padding: 1em 0;
+		transition: transform 500ms ease;
+
+		&.active {
+			transform: translateY(-50%) scaleY(1);
+		}
+
+		.popup-close {
+			position: absolute;
+			top: .5em;
+			right: .5em;
+			padding: .1em .4em;
+			background: none;
+			color: $red;
+			border: solid 1px $primaryColour;
+		}
+	}
+}
+
+.settings {
+	h2,
+	input {
+		margin-left: 2%;
+	}
+
+	h2 {
+		margin-bottom: .5em;
+	}
+
+	input {
+		padding: .5em;
+		@include border-box;
+		border: solid 1px $primaryColour;
+	}
+}
+
+#cached-item-display {
+	width: 100%;
+	height: 200px;
+	overflow-y: auto;
+	margin-top: .5em;
+	padding: 0 2%;
+	@include border-box;
+
+	li {
+		position: relative;
+		padding: .5em;
+		margin-bottom: .5em;
+		@include border-box;
+		border: solid 1px $primaryColour;
+
+		&.shared {
+			background-color: $primaryColour;
+
+			.delete-cached-item {
+				border-color: $white;
+			}
+		}
+
+		p {
+			&.description {
+				font-weight: bold;
+			}
+			&.price {
+				font-size: .9em;
+				font-weight: 300;
+				font-style: italic;
+			}
+		}
+
+		.delete-cached-item {
+			position: absolute;
+			right: .5em;
+			top: 50%;
+			transform: translateY(-50%);
+			background: none;
+			color: $red;
+			border: solid 1px $primaryColour;
+			padding: .1em .4em;
+		}
+	}
+}
+
+#loading-screen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $white;
+	opacity: .5;
+}

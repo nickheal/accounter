@@ -25,20 +25,36 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
-        <link rel="stylesheet" type="text/css" href="./css/index.css" />
-        <title>Hello World</title>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <title>Accounter</title>
     </head>
     <body>
-        <div id="testArea"></div>
+
+        <header>
+            <h1>Accounter</h1>
+            <h2>User: <span class="username"></span></h2>
+            <button id="sync">sync</button>
+            <button id="settings">cog</button>
+        </header>
         
-        <script type="text/javascript" src="./cordova.js"></script>
-        <script type="text/javascript" src="./js/index.js"></script>
+        <form id="add-item-form">
+            <input name="description" type="text" placeholder="Description" required>
+
+            <input name="price" type="number" min="0.01" step="0.01" placeholder="Price" required>
+
+            <input name="shared" id="shared" type="checkbox">
+            <label for="shared"><span></span>Shared?</label>
+
+            <button type="submit" id="add-item">&plus;</button>
+        </form>
+
+        <ul id="cached-item-display"></ul>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js.min/production.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
-        <script type="text/javascript" src="./js/jquery-2.2.1.min.js"></script>
-        <script type="text/javascript" src="./js/TweenMax.min.js"></script>
-        <script type="text/javascript" src="./js/main.js"></script>
     </body>
 </html>
