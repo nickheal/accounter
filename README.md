@@ -1,2 +1,2 @@
-# phonegaptest
-Phone gap packaging test.
+# Accounter
+An app for keeping track of accounts.
