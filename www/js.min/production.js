@@ -85,7 +85,7 @@ var app = (function () {
             $.ajax({
                 method: 'POST',
                 data: {data: storage.getCache()},
-                url: 'http://192.168.0.5:8888/accounter/api/main.php',
+                url: 'http://192.168.0.5:8888/accounter/api/set_items.php',
                 success: function (data) {
                     vis.hideLoading();
                     localStorage.setItem('cachedItems', JSON.stringify([]));
