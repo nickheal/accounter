@@ -3,11 +3,11 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-<path fill="none" stroke="#aabbcc" stroke-width="5" stroke-miterlimit="10" d="M86.504,33.596l-16.311-2.37
+<path fill="none" stroke="#ffffff" stroke-width="5" stroke-miterlimit="10" d="M86.504,33.596l-16.311-2.37
 	c-2.345-2.521-5.151-4.605-8.291-6.109l-7.34-14.873c-1.499-0.17-3.02-0.267-4.563-0.267s-3.063,0.096-4.562,0.266l-7.34,14.873
 	c-3.141,1.504-5.948,3.589-8.293,6.11l-16.31,2.37c-1.272,2.828-2.227,5.828-2.816,8.958l12.083,11.777
 	c0.487,3.085,1.485,5.998,2.905,8.653l-2.815,16.414c2.404,2.222,5.079,4.154,7.974,5.737l14.98-7.875
 	c1.367,0.208,2.768,0.316,4.193,0.316c1.426,0,2.827-0.108,4.194-0.317l14.979,7.875c2.895-1.583,5.57-3.516,7.975-5.737
 	l-2.815-16.415c1.42-2.654,2.418-5.566,2.904-8.649L89.32,42.556C88.731,39.424,87.777,36.424,86.504,33.596z"/>
-<circle fill="none" stroke="#aabbcc" stroke-width="5" stroke-miterlimit="10" cx="50" cy="50" r="15.584"/>
+<circle fill="none" stroke="#ffffff" stroke-width="5" stroke-miterlimit="10" cx="50" cy="50" r="15.584"/>
 </svg>

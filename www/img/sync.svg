@@ -4,22 +4,22 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
 <g>
-	<path fill="#FFFFFF" d="M15.592,50c0-19.003,15.405-34.408,34.407-34.408"/>
+	<path fill="#aabbcc" d="M15.592,50c0-19.003,15.405-34.408,34.407-34.408"/>
 	<g>
-		<path fill="none" stroke="#aabbcc" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" d="M15.592,50
+		<path fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" d="M15.592,50
 			c0-12.952,7.157-24.233,17.731-30.104"/>
 		<g>
-			<polygon fill="#aabbcc" points="33.608,33.03 49.999,15.592 26.703,10.113 			"/>
+			<polygon fill="#ffffff" points="33.608,33.03 49.999,15.592 26.703,10.113 			"/>
 		</g>
 	</g>
 </g>
 <g>
-	<path fill="#FFFFFF" d="M84.407,50c0,19.002-15.405,34.407-34.408,34.407"/>
+	<path fill="#aabbcc" d="M84.407,50c0,19.002-15.405,34.407-34.408,34.407"/>
 	<g>
-		<path fill="none" stroke="#aabbcc" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" d="M84.407,50
+		<path fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" d="M84.407,50
 			c0,12.952-7.157,24.232-17.731,30.104"/>
 		<g>
-			<polygon fill="#aabbcc" points="66.39,66.97 49.999,84.407 73.295,89.887 			"/>
+			<polygon fill="#ffffff" points="66.39,66.97 49.999,84.407 73.295,89.887 			"/>
 		</g>
 	</g>
 </g>
