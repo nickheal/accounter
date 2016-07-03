@@ -12,6 +12,7 @@ body {
   -webkit-user-select: none;
   /* prevent copy paste, to allow, change 'none' to 'text' */
   background-color: #ffffff;
+  font-family: 'Helvetica, Arial, sans-serif';
   font-size: 16px;
   height: 100%;
   width: 100%; }
@@ -19,11 +20,14 @@ body {
 header {
   position: relative;
   width: 100%;
-  border-bottom: solid 1px #aabbcc; }
+  border-bottom: solid 1px #aabbcc;
+  background-color: #aabbcc; }
   header h1,
   header h2 {
     width: 96%;
-    margin: 0 auto; }
+    margin: 0 auto;
+    font-size: 1em;
+    color: #ffffff; }
   header #sync,
   header #settings {
     position: absolute;
@@ -31,7 +35,7 @@ header {
     transform: translateY(-50%);
     width: 2em;
     height: 2em;
-    border: solid 1px #aabbcc;
+    border: solid 1px #ffffff;
     background: none;
     background-size: contain;
     background-repeat: no-repeat;
