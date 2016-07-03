@@ -28,9 +28,6 @@ var app = (function () {
 
     storage = {
         init: function () {
-            if (!localStorage.getItem('lastSync')) {
-                localStorage.setItem('lastSync', Date());
-            }
             if (!localStorage.getItem('cachedItems')) {
                 var emptyArr = [];
                 localStorage.setItem('cachedItems', JSON.stringify(emptyArr));
@@ -127,7 +124,7 @@ var app = (function () {
         },
 
         showSettings: function () {
-            el.$body.append('<div class="popup-wrapper"><div class="popup settings"><button class="popup-close">&times;</button><h2>Settings</h2><input placeholder="Username" id="edit-username" value="' + storage.getUser() + '"></div></div>');
+            el.$body.append('<div class="popup-wrapper"><div class="popup settings"><button class="popup-close"></button><h2>Settings</h2><input placeholder="Username" id="edit-username" value="' + storage.getUser() + '"></div></div>');
 
             setTimeout(function () {
                 $('.popup-wrapper').addClass('active');
@@ -164,12 +161,38 @@ var app = (function () {
             vis.init();
 
             $document.on('click', '.delete-cached-item', function (e) {
-                var timestamp;
+                var $this, $parent, timestamp;
 
                 e.preventDefault();
 
-                timestamp = $(this).parent().attr('data-timestamp');
+                $this = $(this);
+                $parent = $this.parent().parent();
+
+                timestamp = $parent.attr('data-timestamp');
+                $parent.addClass('deleting');
+            });
+
+            $document.on('click', '.confirm-delete', function (e) {
+                var $this, $parent, timestamp;
+
+                e.preventDefault();
+
+                $this = $(this);
+                $parent = $this.parent().parent();
+
+                timestamp = $parent.attr('data-timestamp');
                 storage.deleteItem(timestamp);
+            });
+
+            $document.on('click', '.cancel-delete', function (e) {
+                var $this, $parent, timestamp;
+
+                e.preventDefault();
+
+                $this = $(this);
+                $parent = $this.parent().parent();
+
+                $parent.removeClass('deleting');
             });
 
             storage.init();
@@ -202,11 +225,18 @@ var app = (function () {
 
                 myClass = cache[i].shared ? 'shared' : 'not-shared';
                 $cacheHolder.append('<li class="' + myClass + '" data-timestamp="' + cache[i].date + '">' + 
-                    '<p class="description">' + cache[i].description + '</p>' +
-                    '<p class="price">£' + cache[i].price + '</p>' +
-                    '<p class="date">' + tDate.getDate() + '/' + tDate.getMonth() + '/' + tDate.getFullYear() + ' - ' + tDate.getHours() + ':' + tDate.getMinutes() + '</p>' +
-                    '<button class="delete-cached-item"></button>' +
-                    '</li>');
+                    '<div class="front-face">' +
+                        '<p class="description">' + cache[i].description + '</p>' +
+                        '<p class="price">£' + cache[i].price + '</p>' +
+                        '<p class="date">' + tDate.getDate() + '/' + tDate.getMonth() + '/' + tDate.getFullYear() + ' - ' + tDate.getHours() + ':' + tDate.getMinutes() + '</p>' +
+                        '<button class="delete-cached-item"></button>' +
+                    '</div>' +
+                    '<div class="back-face">' +
+                        '<p class="description">Are you sure?</p>' +
+                        '<button class="confirm-delete">Yes</button>' +
+                        '<button class="cancel-delete">No</button>' +
+                    '</div>' +
+                '</li>');
             }
         },
 

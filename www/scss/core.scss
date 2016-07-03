@@ -150,7 +150,8 @@ hr {
 		transform: translateY(-50%) scale(1.05);
 		opacity: 0;
 		width: 100%;
-		background-color: $white;
+		color: $white;
+		background-color: $primaryColour;
 		padding: 1em 0;
 		transition: transform 500ms ease, opacity 500ms ease;
 
@@ -163,10 +164,20 @@ hr {
 			position: absolute;
 			top: .5em;
 			right: .5em;
-			padding: .1em .4em;
+			width: 2em;
+			height: 2em;
 			background: none;
-			color: $red;
-			border: solid 1px $primaryColour;
+			background-image: url(../img/cross_light.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 50%;
+			border: solid 1px $white;
+		}
+
+		input {
+			background: none;
+			color: $white;
+			border: solid 1px $white;
 		}
 	}
 }
@@ -195,6 +206,7 @@ hr {
 	margin-top: .5em;
 	padding: 0 2%;
 	@include border-box;
+	perspective: 50em;
 
 	li {
 		position: relative;
@@ -202,6 +214,7 @@ hr {
 		margin-bottom: .5em;
 		@include border-box;
 		border: solid 1px $primaryColour;
+		transition: transform 500ms ease;
 
 		&.shared {
 			color: $white;
@@ -210,6 +223,25 @@ hr {
 			.delete-cached-item {
 				background-image: url(../img/cross_light.svg);
 				border-color: $white;
+			}
+
+			.back-face {
+				.confirm-delete,
+				.cancel-delete {
+					color: $white;
+					border: solid 1px $white;
+				}
+		}
+		}
+
+		&.deleting {
+			transform: rotateX(180deg);
+
+			.front-face {
+				display: none;
+			}
+			.back-face {
+				display: block;
 			}
 		}
 
@@ -238,6 +270,21 @@ hr {
 			border: solid 1px $primaryColour;
 			width: 2em;
 			height: 2em;
+		}
+
+		.back-face {
+			display: none;
+			text-align: center;
+			transform: rotateX(-180deg);
+
+			.confirm-delete,
+			.cancel-delete {
+				background: none;
+				padding: .5em .9em;
+				margin: .3em 3em;
+				color: $primaryColour;
+				border: solid 1px $primaryColour;
+			}
 		}
 	}
 }
