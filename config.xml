@@ -1,9 +1,9 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.accounter" version="1.0.0">
   <name>Accounter</name>
-  <description>Account app to keep track of spending..</description>
+  <description>Account app to keep track of spending. Ties in to a desktop app to work.</description>
   <author href="http://phonegap.com" email="support@phonegap.com">Nick Heal</author>
   <content src="index.html"/>
-  <preference name="EnableViewportScale" value="true" />
+
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
   <preference name="target-device" value="universal"/>
@@ -19,6 +19,9 @@
   <preference name="disable-cursor" value="false"/>
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="android-installLocation" value="auto"/>
+  <!-- vvv I added this vvv -->
+  <preference name="StatusBarOverlaysWebView" value="true" />
+
   <gap:plugin name="org.apache.cordova.battery-status"/>
   <gap:plugin name="org.apache.cordova.camera"/>
   <gap:plugin name="org.apache.cordova.media-capture"/>

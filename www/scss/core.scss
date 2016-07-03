@@ -12,7 +12,9 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color: $white;
+    font-family: 'Helvetica, Arial, sans-serif';
     font-size: 16px;
+    color: $textBlack;
     height: 100%;
     width: 100%;
 }
@@ -21,11 +23,14 @@ header {
 	position: relative;
 	width: 100%;
 	border-bottom: solid 1px $primaryColour;
+	background-color: $primaryColour;
 
 	h1,
 	h2 {
 		width: 96%;
 		margin: 0 auto;
+		font-size: 1em;
+		color: $white;
 	}
 
 	#sync,
@@ -35,9 +40,9 @@ header {
 		transform: translateY(-50%);
 		width: 2em;
 		height: 2em;
-		border: solid 1px $primaryColour;
+		border: solid 1px $white;
 		background: none;
-		background-size: contain;
+		background-size: 85%;
 		background-repeat: no-repeat;
 		background-position: center;
 		color: transparent;
@@ -78,6 +83,8 @@ form {
 		left: -9999px;
 
 		& + label {
+			color: $primaryColour;
+
 			span {
 				position: relative;
 				display: inline-block;
@@ -108,14 +115,20 @@ form {
 
 	button {
 		background: none;
-		border: solid 3px $primaryColour;
-		padding: .25em .5em;
-		font-size: 2em;
-		font-weight: 700;
-		text-transform: uppercase;
-		@include border-box;
-		color: $primaryColour;
+		background-image: url(../img/plus.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 50%;
+		border: solid 1px $primaryColour;
+		width: 5em;
+		height: 5em;
 	}
+}
+
+hr {
+	background: none;
+	border: solid 1px $primaryColour;
+	margin: 1em 0;
 }
 
 .popup-wrapper {
@@ -134,14 +147,16 @@ form {
 	.popup {
 		position: absolute;
 		top: 50%;
-		transform: translateY(-50%) scaleY(0);
+		transform: translateY(-50%) scale(1.05);
+		opacity: 0;
 		width: 100%;
 		background-color: $white;
 		padding: 1em 0;
-		transition: transform 500ms ease;
+		transition: transform 500ms ease, opacity 500ms ease;
 
 		&.active {
-			transform: translateY(-50%) scaleY(1);
+			opacity: 1;
+			transform: translateY(-50%) scale(1);
 		}
 
 		.popup-close {
@@ -189,9 +204,11 @@ form {
 		border: solid 1px $primaryColour;
 
 		&.shared {
+			color: $white;
 			background-color: $primaryColour;
 
 			.delete-cached-item {
+				background-image: url(../img/cross_light.svg);
 				border-color: $white;
 			}
 		}
@@ -213,9 +230,13 @@ form {
 			top: 50%;
 			transform: translateY(-50%);
 			background: none;
-			color: $red;
+			background-image: url(../img/cross.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 50%;
 			border: solid 1px $primaryColour;
-			padding: .1em .4em;
+			width: 2em;
+			height: 2em;
 		}
 	}
 }

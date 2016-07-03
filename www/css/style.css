@@ -14,14 +14,15 @@ body {
   background-color: #ffffff;
   font-family: 'Helvetica, Arial, sans-serif';
   font-size: 16px;
+  color: #373737;
   height: 100%;
   width: 100%; }
 
 header {
   position: relative;
   width: 100%;
-  border-bottom: solid 1px #aabbcc;
-  background-color: #aabbcc; }
+  border-bottom: solid 1px #778899;
+  background-color: #778899; }
   header h1,
   header h2 {
     width: 96%;
@@ -37,7 +38,7 @@ header {
     height: 2em;
     border: solid 1px #ffffff;
     background: none;
-    background-size: contain;
+    background-size: 85%;
     background-repeat: no-repeat;
     background-position: center;
     color: transparent;
@@ -55,7 +56,7 @@ form {
   form input:not([type="checkbox"]) {
     width: 100%;
     padding: 1em;
-    border: solid 1px #aabbcc;
+    border: solid 1px #778899;
     margin-top: 1em;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -68,14 +69,16 @@ form {
     position: absolute;
     top: -9999px;
     left: -9999px; }
-    form input[type="checkbox"] + label span {
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
-      width: 2em;
-      height: 2em;
-      margin-right: .5em;
-      border: solid 1px #aabbcc; }
+    form input[type="checkbox"] + label {
+      color: #778899; }
+      form input[type="checkbox"] + label span {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 2em;
+        height: 2em;
+        margin-right: .5em;
+        border: solid 1px #778899; }
     form input[type="checkbox"]:checked + label span:after {
       position: absolute;
       top: 50%;
@@ -83,18 +86,21 @@ form {
       transform: translate(-50%, -50%);
       content: "\2714";
       font-size: 1.5em;
-      color: #aabbcc; }
+      color: #778899; }
   form button {
     background: none;
-    border: solid 3px #aabbcc;
-    padding: .25em .5em;
-    font-size: 2em;
-    font-weight: 700;
-    text-transform: uppercase;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: #aabbcc; }
+    background-image: url(../img/plus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    border: solid 1px #778899;
+    width: 5em;
+    height: 5em; }
+
+hr {
+  background: none;
+  border: solid 1px #778899;
+  margin: 1em 0; }
 
 .popup-wrapper {
   position: absolute;
@@ -109,13 +115,15 @@ form {
   .popup-wrapper .popup {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%) scaleY(0);
+    transform: translateY(-50%) scale(1.05);
+    opacity: 0;
     width: 100%;
     background-color: #ffffff;
     padding: 1em 0;
-    transition: transform 500ms ease; }
+    transition: transform 500ms ease, opacity 500ms ease; }
     .popup-wrapper .popup.active {
-      transform: translateY(-50%) scaleY(1); }
+      opacity: 1;
+      transform: translateY(-50%) scale(1); }
     .popup-wrapper .popup .popup-close {
       position: absolute;
       top: .5em;
@@ -123,7 +131,7 @@ form {
       padding: .1em .4em;
       background: none;
       color: #ff0000;
-      border: solid 1px #aabbcc; }
+      border: solid 1px #778899; }
 
 .settings h2,
 .settings input {
@@ -137,7 +145,7 @@ form {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border: solid 1px #aabbcc; }
+  border: solid 1px #778899; }
 
 #cached-item-display {
   width: 100%;
@@ -155,10 +163,12 @@ form {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    border: solid 1px #aabbcc; }
+    border: solid 1px #778899; }
     #cached-item-display li.shared {
-      background-color: #aabbcc; }
+      color: #ffffff;
+      background-color: #778899; }
       #cached-item-display li.shared .delete-cached-item {
+        background-image: url(../img/cross_light.svg);
         border-color: #ffffff; }
     #cached-item-display li p.description {
       font-weight: bold; }
@@ -172,9 +182,13 @@ form {
       top: 50%;
       transform: translateY(-50%);
       background: none;
-      color: #ff0000;
-      border: solid 1px #aabbcc;
-      padding: .1em .4em; }
+      background-image: url(../img/cross.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 50%;
+      border: solid 1px #778899;
+      width: 2em;
+      height: 2em; }
 
 #loading-screen {
   position: absolute;

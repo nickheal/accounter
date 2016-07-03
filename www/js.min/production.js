@@ -202,7 +202,7 @@ var app = (function () {
                 $cacheHolder.append('<li class="' + myClass + '" data-timestamp="' + cache[i].date + '">' + 
                     '<p class="description">' + cache[i].description + '</p>' +
                     '<p class="price">£' + cache[i].price + '</p>' +
-                    '<button class="delete-cached-item">&times;</button>' +
+                    '<button class="delete-cached-item"></button>' +
                     '</li>');
             }
         },
