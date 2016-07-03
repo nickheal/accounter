@@ -217,7 +217,8 @@ hr {
 			&.description {
 				font-weight: bold;
 			}
-			&.price {
+			&.price,
+			&.date {
 				font-size: .9em;
 				font-weight: 300;
 				font-style: italic;

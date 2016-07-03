@@ -172,7 +172,7 @@ hr {
         border-color: #ffffff; }
     #cached-item-display li p.description {
       font-weight: bold; }
-    #cached-item-display li p.price {
+    #cached-item-display li p.price, #cached-item-display li p.date {
       font-size: .9em;
       font-weight: 300;
       font-style: italic; }

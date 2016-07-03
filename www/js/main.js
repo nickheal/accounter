@@ -185,7 +185,7 @@ var app = (function () {
         },
 
         updateCacheDisplay: function () {
-            var cache, $cacheHolder, myClass, i;
+            var cache, $cacheHolder, myClass, tDate, i;
 
             $cacheHolder = $('#cached-item-display');
             cache = storage.getCache();
@@ -193,10 +193,13 @@ var app = (function () {
             $cacheHolder.empty();
 
             for (i = 0; i < cache.length; i++) {
+                tDate = new Date(cache[i].date);
+
                 myClass = cache[i].shared ? 'shared' : 'not-shared';
                 $cacheHolder.append('<li class="' + myClass + '" data-timestamp="' + cache[i].date + '">' + 
                     '<p class="description">' + cache[i].description + '</p>' +
                     '<p class="price">£' + cache[i].price + '</p>' +
+                    '<p class="date">' + tDate.getDate() + '/' + tDate.getMonth() + '/' + tDate.getFullYear() + ' - ' + tDate.getHours() + ':' + tDate.getMinutes() + '</p>' +
                     '<button class="delete-cached-item"></button>' +
                     '</li>');
             }

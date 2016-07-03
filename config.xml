@@ -20,7 +20,7 @@
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="android-installLocation" value="auto"/>
   <!-- vvv I added this vvv -->
-  <preference name="StatusBarOverlaysWebView" value="true" />
+  <preference name="StatusBarOverlaysWebView" value="false" />
 
   <gap:plugin name="org.apache.cordova.battery-status"/>
   <gap:plugin name="org.apache.cordova.camera"/>
