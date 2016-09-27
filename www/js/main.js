@@ -37,6 +37,14 @@ var app = (function () {
             return localStorage.setItem('user', user);
         },
 
+        getSyncIp: function () {
+            return localStorage.getItem('syncIp') || '';
+        },
+
+        setSyncIp: function (syncIp) {
+            return localStorage.setItem('syncIp', syncIp);
+        },
+
         getCache: function () {
             return JSON.parse(localStorage.getItem('cachedItems'));
         },
@@ -73,21 +81,25 @@ var app = (function () {
         },
 
         sync: function () {
-            vis.showLoading();
-            $.ajax({
-                method: 'POST',
-                data: {data: storage.getCache()},
-                url: 'http://192.168.0.5:8888/accounter/api/set_items.php',
-                success: function (data) {
-                    vis.hideLoading();
-                    localStorage.setItem('cachedItems', JSON.stringify([]));
-                    app.updateCacheDisplay();
-                },
-                error: function (err) {
-                    vis.hideLoading();
-                    alert('Couldn\'t connect');
-                }
-            });
+            if (storage.getSyncIp()) {
+                vis.showLoading();
+                $.ajax({
+                    method: 'POST',
+                    data: {data: storage.getCache()},
+                    url: 'http://' + storage.getSyncIp() + '/accounter/api/set_items.php',
+                    success: function (data) {
+                        vis.hideLoading();
+                        localStorage.setItem('cachedItems', JSON.stringify([]));
+                        app.updateCacheDisplay();
+                    },
+                    error: function (err) {
+                        vis.hideLoading();
+                        alert('Couldn\'t connect');
+                    }
+                });
+            } else {
+                alert('Please set a sync IP');
+            }
         }
     }
 
@@ -119,7 +131,7 @@ var app = (function () {
         },
 
         showSettings: function () {
-            el.$body.append('<div class="popup-wrapper"><div class="popup settings"><button class="popup-close"></button><h2>Settings</h2><input placeholder="Username" id="edit-username" value="' + storage.getUser() + '"></div></div>');
+            el.$body.append('<div class="popup-wrapper"><div class="popup settings"><button class="popup-close"></button><h2>Settings</h2><input placeholder="Username" id="edit-username" value="' + storage.getUser() + '"><input placeholder="Sync IP" id="edit-sync-ip" value="' + storage.getSyncIp() + '"></div></div>');
 
             setTimeout(function () {
                 $('.popup-wrapper').addClass('active');
@@ -130,6 +142,12 @@ var app = (function () {
                     newName = $(this).val();
                     storage.setUser(newName);
                     app.updateUser();
+                });
+
+                $('#edit-sync-ip').on('change', function () {
+                    var newIp;
+                    newIp = $(this).val();
+                    storage.setSyncIp(newIp);
                 });
             }, 0);
         }
@@ -221,7 +239,7 @@ var app = (function () {
                 myClass = cache[i].shared ? 'shared' : 'not-shared';
                 $cacheHolder.append('<li class="' + myClass + '" data-timestamp="' + cache[i].date + '">' + 
                     '<div class="front-face">' +
-                        '<p class="description">' + cache[i].description + '</p>' +
+                        '<p class="description">' + cache[i].description + ' <em>- ' + cache[i].category + '</em></p>' +
                         '<p class="price">£' + cache[i].price + '</p>' +
                         '<p class="date">' + tDate.getDate() + '/' + tDate.getMonth() + '/' + tDate.getFullYear() + ' - ' + tDate.getHours() + ':' + tDate.getMinutes() + '</p>' +
                         '<button class="delete-cached-item"></button>' +

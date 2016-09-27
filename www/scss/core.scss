@@ -113,6 +113,16 @@ form {
 		}
 	}
 
+	select {
+		width: 100%;
+		padding: 1em .7em;
+		background: $primaryColour;
+		color: $white;
+		border: solid 1px $white;
+		margin-top: 1em;
+		@include border-box;
+	}
+
 	button {
 		background: none;
 		background-image: url(../img/plus.svg);
@@ -178,6 +188,10 @@ hr {
 			background: none;
 			color: $white;
 			border: solid 1px $white;
+
+			&#edit-sync-ip {
+				margin-top: 1em;
+			}
 		}
 	}
 }
@@ -248,6 +262,10 @@ hr {
 		p {
 			&.description {
 				font-weight: bold;
+
+				em {
+					font-weight: 100;
+				}
 			}
 			&.price,
 			&.date {
